@@ -12,7 +12,7 @@ import javax.inject.Inject
 class RidersUseCase @Inject constructor(
     private val summaryRepository: SummaryRepository
 ){
-    operator fun invoke(): Flow<Resource<List<Stage>>> = channelFlow {
+    operator fun invoke(): Flow<Resource<Stage>> = channelFlow {
         summaryRepository.getSummary().collectLatest {
             when(it){
                 is Resource.Success-> {

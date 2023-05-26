@@ -5,15 +5,15 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.otarbakh.motogp.data.summary.StageX
+import com.otarbakh.motogp.data.summary.Competitor
 import com.otarbakh.motogp.databinding.SingleRiderLayoutBinding
 
 class RidersAdapter :
-    ListAdapter<StageX, RidersAdapter.RidersViewHolder>(
+    ListAdapter<Competitor, RidersAdapter.RidersViewHolder>(
         LinksDiffCallback()
     ) {
 
-    private lateinit var itemClickListener: (StageX, Int) -> Unit
+    private lateinit var itemClickListener: (Competitor, Int) -> Unit
 
     override fun onCreateViewHolder(
         parent: ViewGroup, viewType: Int,
@@ -30,11 +30,12 @@ class RidersAdapter :
 
     inner class RidersViewHolder(private val binding: SingleRiderLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        private var model: StageX? = null
+        private var model: Competitor? = null
         fun bindData() {
             model = getItem(adapterPosition)
             binding.apply {
-                tvRiderName.text = model?.
+                tvRiderName.text = model?.name
+                tvRiderNationality.text = model?.nationality
 
 
             }
@@ -42,28 +43,26 @@ class RidersAdapter :
             binding.tvRiderName.setOnClickListener {
                 itemClickListener.invoke(model!!, adapterPosition)
             }
-
         }
-
     }
 
-    fun setOnItemClickListener(clickListener: (StageX, Int) -> Unit) {
+    fun setOnItemClickListener(clickListener: (Competitor, Int) -> Unit) {
         itemClickListener = clickListener
     }
 }
 
 
-class LinksDiffCallback : DiffUtil.ItemCallback<StageX>() {
+class LinksDiffCallback : DiffUtil.ItemCallback<Competitor>() {
     override fun areItemsTheSame(
-        oldItem: StageX,
-        newItem: StageX,
+        oldItem: Competitor,
+        newItem: Competitor,
     ): Boolean {
         return oldItem.id == newItem.id
     }
 
     override fun areContentsTheSame(
-        oldItem: StageX,
-        newItem: StageX,
+        oldItem: Competitor,
+        newItem: Competitor,
     ): Boolean {
         return oldItem == newItem
     }

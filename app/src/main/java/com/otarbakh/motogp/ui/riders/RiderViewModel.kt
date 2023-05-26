@@ -3,6 +3,7 @@ package com.otarbakh.motogp.ui.riders
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.otarbakh.motogp.common.Resource
+import com.otarbakh.motogp.data.summary.Stage
 import com.otarbakh.motogp.data.summary.StageX
 import com.otarbakh.motogp.domain.use_case.RidersUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -18,7 +19,7 @@ class RiderViewModel @Inject constructor(
     private val ridersUseCase: RidersUseCase,
 ) : ViewModel() {
 
-    private val _state = MutableStateFlow<Resource<List<StageX>>> (Resource.Loading(false))
+    private val _state = MutableStateFlow<Resource<Stage>> (Resource.Loading(false))
     val state = _state.asStateFlow()
     fun getRiders(){
         ridersUseCase().onEach { result ->

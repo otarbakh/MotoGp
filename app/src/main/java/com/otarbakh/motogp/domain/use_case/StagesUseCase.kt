@@ -15,7 +15,7 @@ class StagesUseCase @Inject constructor(
         summaryRepository.getSummary().collectLatest {
             when(it){
                 is Resource.Success-> {
-                    send(Resource.Success(it.data))
+//                    send(Resource.Success(it.data))
                 }
                 is Resource.Loading-> {
                     send(Resource.Loading(it.loading))
