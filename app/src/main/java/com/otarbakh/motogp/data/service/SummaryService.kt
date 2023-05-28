@@ -8,7 +8,7 @@ import retrofit2.http.Query
 
 interface SummaryService {
     @GET(Constants.SUMMARY_URL_END_POINT)
-    suspend fun getSummary(
+    suspend fun fetchSummary(
         @Query("api_key")
         apiKey: String
     ):Response<SummaryDto>
