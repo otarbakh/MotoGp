@@ -10,7 +10,7 @@ import com.otarbakh.motogp.databinding.SingleRiderLayoutBinding
 
 class RidersAdapter :
     ListAdapter<Competitor, RidersAdapter.RidersViewHolder>(
-        LinksDiffCallback()
+        RidesDiffCallback()
     ) {
 
     private lateinit var itemClickListener: (Competitor, Int) -> Unit
@@ -52,7 +52,7 @@ class RidersAdapter :
 }
 
 
-class LinksDiffCallback : DiffUtil.ItemCallback<Competitor>() {
+class RidesDiffCallback : DiffUtil.ItemCallback<Competitor>() {
     override fun areItemsTheSame(
         oldItem: Competitor,
         newItem: Competitor,

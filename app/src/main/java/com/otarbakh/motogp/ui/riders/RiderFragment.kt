@@ -19,7 +19,7 @@ class RiderFragment :BaseFragment<FragmentRiderBinding>(FragmentRiderBinding::in
     private val ridersVM: RiderViewModel by viewModels()
     private val ridersAdapter: RidersAdapter by lazy { RidersAdapter() }
     override fun viewCreated() {
-        setupRecycler()
+
         observe()
 
     }
