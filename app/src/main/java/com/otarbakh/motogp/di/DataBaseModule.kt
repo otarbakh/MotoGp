@@ -3,6 +3,7 @@ package com.otarbakh.motogp.di
 import android.content.Context
 import androidx.room.Room
 import com.otarbakh.motogp.data.database.DataBase
+import com.otarbakh.motogp.data.database.TeamsDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -24,5 +25,10 @@ object DataBaseModule {
             DataBase::class.java,"TeamsTable",
         ).fallbackToDestructiveMigration()
             .build()
+    }
+    @Singleton
+    @Provides
+    fun provideTeamsDao(db: DataBase): TeamsDao {
+        return db.teamsDao
     }
 }

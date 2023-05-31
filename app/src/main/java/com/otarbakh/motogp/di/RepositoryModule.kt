@@ -18,9 +18,7 @@ abstract class RepositoryModule {
         summaryRepository: SummaryRepositoryImpl
     ):SummaryRepository
 
-    @Binds
-    @Singleton
-    abstract fun provideTeamsRepo()
+   
 }
 
 

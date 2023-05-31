@@ -10,14 +10,14 @@ import com.otarbakh.motogp.domain.model.TeamDomain
 @Entity(tableName = "MotoGpTeams")
 data class TeamsEntity(
 
-    val competitors: List<CompetitorX>?,
+//    val competitors: List<CompetitorX>?,
     val country_code: String?,
     @PrimaryKey(autoGenerate = false)
-    val id: String?,
+    val id: String,
     val name: String?,
     val nationality: String?,
 
 )
 fun TeamsEntity.toTeamDomain(): TeamDomain{
-    return TeamDomain(competitors, country_code, id, name, nationality)
+    return TeamDomain( country_code, id, name, nationality)
 }

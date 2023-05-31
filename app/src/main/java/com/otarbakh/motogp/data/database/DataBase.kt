@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase
 import com.otarbakh.motogp.data.model.TeamsEntity
 
 
-@Database(entities = [TeamsEntity::class], version = 1)
+@Database(entities = [TeamsEntity::class], version = 2)
 abstract class DataBase: RoomDatabase(){
     abstract val teamsDao: TeamsDao
 }
