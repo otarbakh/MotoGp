@@ -7,17 +7,16 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 
 
-import com.otarbakh.motogp.data.summary.TeamX
-
 import com.otarbakh.motogp.databinding.SingleTeamLayoutBinding
+import com.otarbakh.motogp.domain.model.TeamDomain
 
 
 class TeamsAdapter :
-    ListAdapter<TeamX, TeamsAdapter.TeamsViewHolder>(
+    ListAdapter<TeamDomain, TeamsAdapter.TeamsViewHolder>(
         TeamsDiffCallback()
     ) {
 
-    private lateinit var itemClickListener: (TeamX, Int) -> Unit
+    private lateinit var itemClickListener: (TeamDomain, Int) -> Unit
 
     override fun onCreateViewHolder(
         parent: ViewGroup, viewType: Int,
@@ -34,7 +33,7 @@ class TeamsAdapter :
 
     inner class TeamsViewHolder(private val binding: SingleTeamLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        private var model: TeamX? = null
+        private var model: TeamDomain? = null
         fun bindData() {
             model = getItem(adapterPosition)
             binding.apply {
@@ -51,23 +50,23 @@ class TeamsAdapter :
         }
     }
 
-    fun setOnItemClickListener(clickListener: (TeamX, Int) -> Unit) {
+    fun setOnItemClickListener(clickListener: (TeamDomain, Int) -> Unit) {
         itemClickListener = clickListener
     }
 }
 
 
-class TeamsDiffCallback : DiffUtil.ItemCallback<TeamX>() {
+class TeamsDiffCallback : DiffUtil.ItemCallback<TeamDomain>() {
     override fun areItemsTheSame(
-        oldItem: TeamX,
-        newItem: TeamX,
+        oldItem: TeamDomain,
+        newItem: TeamDomain,
     ): Boolean {
         return oldItem.id == newItem.id
     }
 
     override fun areContentsTheSame(
-        oldItem: TeamX,
-        newItem: TeamX,
+        oldItem: TeamDomain,
+        newItem: TeamDomain,
     ): Boolean {
         return oldItem == newItem
     }

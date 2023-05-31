@@ -1,4 +1,6 @@
-package com.otarbakh.motogp.data.summary
+package com.otarbakh.motogp.data.model.summary
+
+import com.otarbakh.motogp.domain.model.TeamDomain
 
 data class TeamX(
     val competitors: List<CompetitorX>?,
@@ -9,3 +11,7 @@ data class TeamX(
     val nationality: String?,
     val result: ResultXX?
 )
+
+fun TeamX.toTeamDomain(): TeamDomain {
+    return TeamDomain(competitors, country_code, id, name, nationality)
+}

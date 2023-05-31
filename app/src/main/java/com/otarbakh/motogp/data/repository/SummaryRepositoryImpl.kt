@@ -3,11 +3,17 @@ package com.otarbakh.motogp.data.repository
 import android.util.Log
 import com.otarbakh.motogp.common.Constants
 import com.otarbakh.motogp.common.Resource
+import com.otarbakh.motogp.data.database.TeamsDao
+import com.otarbakh.motogp.data.model.TeamsEntity
 import com.otarbakh.motogp.data.service.SummaryService
-import com.otarbakh.motogp.data.summary.Stage
+import com.otarbakh.motogp.data.model.summary.Stage
+import com.otarbakh.motogp.data.model.toTeamDomain
+import com.otarbakh.motogp.domain.model.TeamDomain
+import com.otarbakh.motogp.domain.model.toTeamEntity
 import com.otarbakh.motogp.domain.repository.SummaryRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.map
 import retrofit2.HttpException
 
 
@@ -15,7 +21,8 @@ import retrofit2.HttpException
 import javax.inject.Inject
 
 class SummaryRepositoryImpl @Inject constructor(
-    private val summaryService: SummaryService
+    private val summaryService: SummaryService,
+    private val favouritesDao: TeamsDao
 ) : SummaryRepository {
     override suspend fun getSummary(): Flow<Resource<Stage>> = flow {
         try {
@@ -25,7 +32,7 @@ class SummaryRepositoryImpl @Inject constructor(
                 emit(Resource.Success(response.body()!!.stage!!))
 
                 Log.d("Jameson", "${response}")
-            } else{
+            } else {
                 Log.d("Jameson", "erorrrrrrrr")
             }
         } catch (e: HttpException) {
@@ -36,5 +43,21 @@ class SummaryRepositoryImpl @Inject constructor(
 
             Log.d("Jameson", "eoriraa vaax")
         }
+    }
+
+    override suspend fun getFavouritismTeams(): Flow<List<TeamDomain>>  {
+        return favouritesDao.getAll().map { it.map { it.toTeamDomain() } }
+    }
+
+    override suspend fun insert(team: TeamDomain) {
+        favouritesDao.insert(team.toTeamEntity())
+    }
+
+    override suspend fun deleteTeam(team: TeamsEntity) {
+        favouritesDao.delete(team)
+    }
+
+    override suspend fun deleteAll() {
+        favouritesDao.deleteAll()
     }
 }

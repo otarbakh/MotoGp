@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.otarbakh.motogp.data.summary.Competitor
+import com.otarbakh.motogp.data.model.summary.Competitor
 import com.otarbakh.motogp.databinding.SingleRiderLayoutBinding
 
 class RidersAdapter :

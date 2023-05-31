@@ -1,7 +1,7 @@
 package com.otarbakh.motogp.domain.use_case
 
 import com.otarbakh.motogp.common.Resource
-import com.otarbakh.motogp.data.summary.Stage
+import com.otarbakh.motogp.data.model.summary.Stage
 import com.otarbakh.motogp.domain.repository.SummaryRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.channelFlow

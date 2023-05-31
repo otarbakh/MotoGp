@@ -1,7 +1,6 @@
-package com.otarbakh.motogp.data.summary
+package com.otarbakh.motogp.data.model.summary
 
-data class Result(
-    val bike_number: Int?,
+data class ResultXX(
     val fastest_laps: Int?,
     val podiums: Int?,
     val points: Int?,

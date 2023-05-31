@@ -3,7 +3,7 @@ package com.otarbakh.motogp.ui.riders
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.otarbakh.motogp.common.Resource
-import com.otarbakh.motogp.data.summary.Stage
+import com.otarbakh.motogp.data.model.summary.Stage
 import com.otarbakh.motogp.domain.use_case.RidersUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow

@@ -1,4 +1,4 @@
-package com.otarbakh.motogp.data.summary
+package com.otarbakh.motogp.data.model.summary
 
 data class Parent(
     val description: String?,

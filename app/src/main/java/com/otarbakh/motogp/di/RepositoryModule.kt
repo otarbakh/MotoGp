@@ -17,5 +17,10 @@ abstract class RepositoryModule {
     abstract fun bindSummaryRepository(
         summaryRepository: SummaryRepositoryImpl
     ):SummaryRepository
+
+    @Binds
+    @Singleton
+    abstract fun provideTeamsRepo()
 }
+
 

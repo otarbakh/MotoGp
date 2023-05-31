@@ -9,10 +9,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.otarbakh.motogp.common.BaseFragment
 import com.otarbakh.motogp.common.Resource
 import com.otarbakh.motogp.databinding.FragmentTeamsBinding
+import com.otarbakh.motogp.domain.model.TeamDomain
 import com.otarbakh.motogp.ui.adapters.StagesAdapter
 import com.otarbakh.motogp.ui.adapters.TeamsAdapter
 import com.otarbakh.motogp.ui.stages.StagesViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -26,8 +28,9 @@ class TeamsFragment : BaseFragment<FragmentTeamsBinding>(FragmentTeamsBinding::i
     }
 
     override fun listeners() {
-
+        addTeam()
     }
+
     private fun setupRecycler() {
         binding.rvTeams.apply {
             adapter = teamsAdapter
@@ -39,6 +42,7 @@ class TeamsFragment : BaseFragment<FragmentTeamsBinding>(FragmentTeamsBinding::i
                 )
         }
     }
+
     private fun observe() {
         setupRecycler()
         teamsVM.getTeams()
@@ -55,7 +59,7 @@ class TeamsFragment : BaseFragment<FragmentTeamsBinding>(FragmentTeamsBinding::i
                         }
 
                         is Resource.Success -> {
-                            teamsAdapter.submitList(it.data.teams)
+                            teamsAdapter.submitList(it.data)
                         }
                     }
                 }
@@ -63,4 +67,15 @@ class TeamsFragment : BaseFragment<FragmentTeamsBinding>(FragmentTeamsBinding::i
         }
     }
 
+    private fun addTeam() {
+        teamsAdapter.apply {
+            setOnItemClickListener { teamDomain, i ->
+                viewLifecycleOwner.lifecycleScope.launch(Dispatchers.IO) {
+                    viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                        teamsVM.addTeam(teamDomain)
+                    }
+                }
+            }
+        }
+    }
 }

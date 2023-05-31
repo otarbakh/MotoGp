@@ -1,4 +1,4 @@
-package com.otarbakh.motogp.data.summary
+package com.otarbakh.motogp.data.model.summary
 
 data class Sport(
     val id: String?,
