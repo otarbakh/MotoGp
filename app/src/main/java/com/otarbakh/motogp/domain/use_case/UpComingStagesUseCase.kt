@@ -1,7 +1,6 @@
 package com.otarbakh.motogp.domain.use_case
 
 import com.otarbakh.motogp.common.Resource
-import com.otarbakh.motogp.data.model.summary.Stage
 import com.otarbakh.motogp.data.model.summary.StageX
 import com.otarbakh.motogp.domain.repository.SummaryRepository
 import kotlinx.coroutines.flow.Flow
@@ -9,14 +8,19 @@ import kotlinx.coroutines.flow.channelFlow
 import kotlinx.coroutines.flow.collectLatest
 import javax.inject.Inject
 
-class StagesUseCase @Inject constructor(
+class UpComingStagesUseCase @Inject constructor(
     private val summaryRepository: SummaryRepository
 ){
-    operator fun invoke(): Flow<Resource<Stage>> = channelFlow {
+    operator fun invoke(): Flow<Resource<List<StageX>?>> = channelFlow {
         summaryRepository.getSummary().collectLatest {
             when(it){
                 is Resource.Success-> {
-                    send(Resource.Success(it.data))
+
+                    val data = it.data.stages?.filter {
+                        it.status != "Closed"
+
+                    }
+                    send(Resource.Success(data))
                 }
                 is Resource.Loading-> {
                     send(Resource.Loading(it.loading))

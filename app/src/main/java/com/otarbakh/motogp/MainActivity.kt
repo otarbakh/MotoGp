@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.home -> replaceFragment(RiderFragment())
                 R.id.profile -> replaceFragment(StagesFragment())
                 R.id.settings -> replaceFragment(TeamsFragment())
+                R.id.stream ->replaceFragment(fragment = Fragment())
 
                 else ->{
 

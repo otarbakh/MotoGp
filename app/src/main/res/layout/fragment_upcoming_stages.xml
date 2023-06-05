@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.stages.StagesFragment">
+
+    <View
+        android:id="@+id/lastRaceContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/backgroundColor"
+        android:elevation="10dp"
+        android:visibility="visible"
+        app:layout_constraintDimensionRatio="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/tvWeather"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:elevation="10dp"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textSize="23sp"
+        android:visibility="visible"
+        app:layout_constraintDimensionRatio="2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvRaceName" />
+
+    <ImageView
+        android:id="@+id/ivWeatherIcon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:elevation="11dp"
+        android:src="@color/black"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@id/tvWeather"
+        app:layout_constraintStart_toEndOf="@id/tvWeather"
+        app:layout_constraintTop_toTopOf="@id/tvWeather" />
+
+    <TextView
+        android:id="@+id/dateContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="15dp"
+        android:elevation="11dp"
+        android:textColor="@color/black"
+        android:textSize="27sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@id/ivWeatherIcon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ivWeatherIcon"
+        app:layout_constraintTop_toBottomOf="@id/tvRaceName" />
+
+
+    <TextView
+        android:id="@+id/lastRaceLocation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="5dp"
+        android:elevation="10dp"
+        android:paddingHorizontal="10dp"
+        android:text="the_next_race_will_be :"
+        android:textColor="@color/black"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvRaceName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="25dp"
+        android:elevation="10dp"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toStartOf="@id/tvLocation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvLocation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="50dp"
+        android:drawableStart="@drawable/ic_baseline_location_on_24"
+        android:elevation="11dp"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        android:visibility="visible"
+        app:layout_constraintDimensionRatio="2.4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvRaceName"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvStages"
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lastRaceContainer" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

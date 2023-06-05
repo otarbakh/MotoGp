@@ -1,18 +1,18 @@
 package com.otarbakh.motogp.ui.teams
 
 
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.otarbakh.motogp.R
 import com.otarbakh.motogp.common.BaseFragment
 import com.otarbakh.motogp.common.Resource
 import com.otarbakh.motogp.databinding.FragmentTeamsBinding
-import com.otarbakh.motogp.domain.model.TeamDomain
-import com.otarbakh.motogp.ui.adapters.StagesAdapter
 import com.otarbakh.motogp.ui.adapters.TeamsAdapter
-import com.otarbakh.motogp.ui.stages.StagesViewModel
+import com.otarbakh.motogp.ui.favourite.FavoritesFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collectLatest
@@ -29,6 +29,9 @@ class TeamsFragment : BaseFragment<FragmentTeamsBinding>(FragmentTeamsBinding::i
 
     override fun listeners() {
         addTeam()
+        binding.btnFavs.setOnClickListener{
+            replaceFragment(FavoritesFragment())
+        }
     }
 
     private fun setupRecycler() {
@@ -77,5 +80,14 @@ class TeamsFragment : BaseFragment<FragmentTeamsBinding>(FragmentTeamsBinding::i
                 }
             }
         }
+    }
+
+    private fun replaceFragment(fragment: Fragment){
+
+        val fragmentManager = parentFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.frameLayout,fragment)
+        fragmentTransaction.commit()
+
     }
 }

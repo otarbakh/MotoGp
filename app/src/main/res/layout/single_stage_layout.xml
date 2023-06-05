@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="3dp">
+    android:layout_margin="3dp"
+    android:background="@android:color/white">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivTicket"
         android:layout_width="0dp"
-        android:layout_height="100dp"
-
+        android:layout_height="140dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/guidelineEnd"
@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.18" />
+        app:layout_constraintGuide_percent="0.25" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineEnd"
@@ -36,7 +36,6 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="oct"
-        android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/tv_time"
         app:layout_constraintEnd_toStartOf="@+id/tv_round"
@@ -59,24 +58,24 @@
 
     <TextView
         android:id="@+id/tv_grandPrixName"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="bahreingrapri saswaulebii"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineEnd"
         app:layout_constraintStart_toEndOf="@+id/guidelinePosColor"
         app:layout_constraintTop_toBottomOf="@+id/tv_country" />
 
     <TextView
         android:id="@+id/tv_round"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-
         android:text="raund ragaca"
         android:textAllCaps="true"
-
         android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@+id/tv_country"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineEnd"
         app:layout_constraintStart_toEndOf="@+id/guidelinePosColor"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -84,9 +83,7 @@
         android:id="@+id/tv_country"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:text="bahreinif"
-        android:textColor="@color/black"
         android:textSize="40sp"
         app:layout_constraintBottom_toTopOf="@+id/tv_grandPrixName"
         app:layout_constraintStart_toEndOf="@+id/guidelinePosColor"

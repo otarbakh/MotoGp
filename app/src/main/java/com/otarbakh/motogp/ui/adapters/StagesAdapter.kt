@@ -1,5 +1,6 @@
 package com.otarbakh.motogp.ui.adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -34,17 +35,19 @@ class StagesAdapter :
         RecyclerView.ViewHolder(binding.root) {
         private var model: StageX? = null
         fun bindData() {
-            model = getItem(adapterPosition)
+            model = getItem(bindingAdapterPosition)
             binding.apply {
                 tvGrandPrixName.text = model?.description
-                tvDate.text = model?.scheduled
+                tvDate.text = model?.scheduled?.drop(5)?.dropLast(15)
+                Log.d("OtarBakhtadzeee", "${model?.scheduled?.drop(5)?.dropLast(15).toString()}")
                 tvCountry.text = model?.venue!!.country
+                tvTime.text = model?.scheduled?.drop(11)?.dropLast(9).toString()
 
 
             }
 
             binding.tvDate.setOnClickListener {
-                itemClickListener.invoke(model!!, adapterPosition)
+                itemClickListener.invoke(model!!, bindingAdapterPosition)
             }
         }
     }
