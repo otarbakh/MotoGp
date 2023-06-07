@@ -11,6 +11,7 @@
         android:id="@+id/ivTicket"
         android:layout_width="0dp"
         android:layout_height="140dp"
+        android:src="@drawable/baseline_airplane_ticket_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/guidelineEnd"

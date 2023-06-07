@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/riderFragment">
+    app:startDestination="@id/loginFragment">
 
     <fragment
         android:id="@+id/riderFragment"
@@ -29,9 +29,33 @@
         android:name="com.otarbakh.motogp.ui.favourite.FavoritesFragment"
         android:label="fragment_favorites"
         tools:layout="@layout/fragment_favorites" />
+
     <fragment
-        android:id="@+id/mediaPlayer"
-        android:name="com.otarbakh.motogp.ui.mediaPlayer.MediaPlayerFragment"
-        android:label="fragment_media_player"
-        tools:layout="@layout/fragment_media_player" />
+        android:id="@+id/loginFragment"
+        android:name="com.otarbakh.motogp.ui.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.otarbakh.motogp.ui.main.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_stagesFragment"
+            app:destination="@id/stagesFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_teamsFragment"
+            app:destination="@id/teamsFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_riderFragment"
+            app:destination="@id/riderFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_favoritesFragment2"
+            app:destination="@id/favoritesFragment" />
+
+    </fragment>
 </navigation>

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="home"
-        android:id="@+id/home"
+    <item android:title="riders"
+        android:id="@+id/riders"
         android:icon="@drawable/baseline_home_24"/>
 
-    <item android:title="profile"
-        android:id="@+id/profile"
+    <item android:title="stages"
+        android:id="@+id/stages"
         android:icon="@drawable/baseline_person_24"/>
 
-    <item android:title="settings"
-        android:id="@+id/settings"
+    <item android:title="teams"
+        android:id="@+id/teams"
         android:icon="@drawable/baseline_settings_24"/>
 
     <item android:title="stream"

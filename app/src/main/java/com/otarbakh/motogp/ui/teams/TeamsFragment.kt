@@ -6,6 +6,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.otarbakh.motogp.R
 import com.otarbakh.motogp.common.BaseFragment
@@ -30,7 +31,8 @@ class TeamsFragment : BaseFragment<FragmentTeamsBinding>(FragmentTeamsBinding::i
     override fun listeners() {
         addTeam()
         binding.btnFavs.setOnClickListener{
-            replaceFragment(FavoritesFragment())
+            findNavController().navigate(R.id.action_mainFragment_to_favoritesFragment2)
+//            replaceFragment(FavoritesFragment())
         }
     }
 
@@ -82,12 +84,4 @@ class TeamsFragment : BaseFragment<FragmentTeamsBinding>(FragmentTeamsBinding::i
         }
     }
 
-    private fun replaceFragment(fragment: Fragment){
-
-        val fragmentManager = parentFragmentManager
-        val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.frameLayout,fragment)
-        fragmentTransaction.commit()
-
-    }
 }

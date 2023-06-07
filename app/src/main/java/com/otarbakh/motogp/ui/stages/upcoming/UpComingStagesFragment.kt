@@ -29,6 +29,10 @@ class UpComingStagesFragment: BaseFragment<FragmentUpcomingStagesBinding>(Fragme
 
     }
 
+    fun goToStageDetails(){
+
+    }
+//##################################################################################################
     private fun setupRecycler() {
         binding.rvStages.apply {
             adapter = stagesAdapter
@@ -40,8 +44,6 @@ class UpComingStagesFragment: BaseFragment<FragmentUpcomingStagesBinding>(Fragme
                 )
         }
     }
-
-
     private fun observe() {
         setupRecycler()
         stagesVM.getStages()
@@ -79,7 +81,6 @@ class UpComingStagesFragment: BaseFragment<FragmentUpcomingStagesBinding>(Fragme
             }
         }
     }
-
     private fun observeWeather() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
