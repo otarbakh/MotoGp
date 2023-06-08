@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.otarbakh.motogp.common.BaseFragment
 import com.otarbakh.motogp.common.Resource
 import com.otarbakh.motogp.databinding.FragmentRecentStagesBinding
-import com.otarbakh.motogp.ui.adapters.StagesAdapter
+import com.otarbakh.motogp.ui.adapters.schedule.RecentStagesAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -18,7 +18,7 @@ import kotlinx.coroutines.launch
 class RecentStagesFragment: BaseFragment<FragmentRecentStagesBinding>(FragmentRecentStagesBinding::inflate) {
 
     private val recentVM: RecentStagesViewModel by viewModels()
-    private val recentAdapter: StagesAdapter by lazy { StagesAdapter() }
+    private val recentAdapter: RecentStagesAdapter by lazy { RecentStagesAdapter() }
 
     override fun viewCreated() {
         observe()

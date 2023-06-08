@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import com.otarbakh.motogp.data.database.DataBase
 import com.otarbakh.motogp.data.database.TeamsDao
+import com.otarbakh.motogp.data.database.TicketsDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -30,5 +31,11 @@ object DataBaseModule {
     @Provides
     fun provideTeamsDao(db: DataBase): TeamsDao {
         return db.teamsDao
+    }
+
+    @Singleton
+    @Provides
+    fun provideTicketsDao(db: DataBase): TicketsDao {
+        return db.ticketsDao
     }
 }

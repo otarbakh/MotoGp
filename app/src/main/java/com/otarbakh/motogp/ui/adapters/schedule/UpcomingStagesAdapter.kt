@@ -1,4 +1,4 @@
-package com.otarbakh.motogp.ui.adapters
+package com.otarbakh.motogp.ui.adapters.schedule
 
 import android.util.Log
 import android.view.LayoutInflater
@@ -6,13 +6,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.otarbakh.motogp.data.model.summary.Competitor
 import com.otarbakh.motogp.data.model.summary.StageX
-import com.otarbakh.motogp.databinding.SingleRiderLayoutBinding
-import com.otarbakh.motogp.databinding.SingleStageLayoutBinding
+import com.otarbakh.motogp.databinding.UpcomingSingleStageLayoutBinding
 
-class StagesAdapter :
-    ListAdapter<StageX, StagesAdapter.StagesViewHolder>(
+class UpComingStagesAdapter :
+    ListAdapter<StageX, UpComingStagesAdapter.UpComingStagesViewHolder>(
         StagesDiffCallback()
     ) {
 
@@ -20,18 +18,18 @@ class StagesAdapter :
 
     override fun onCreateViewHolder(
         parent: ViewGroup, viewType: Int,
-    ): StagesViewHolder{
+    ): UpComingStagesViewHolder {
         val binding =
-            SingleStageLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return StagesViewHolder(binding)
+            UpcomingSingleStageLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return UpComingStagesViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: StagesViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: UpComingStagesViewHolder, position: Int) {
         holder.bindData()
     }
 
 
-    inner class StagesViewHolder(private val binding: SingleStageLayoutBinding) :
+    inner class UpComingStagesViewHolder(private val binding: UpcomingSingleStageLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
         private var model: StageX? = null
         fun bindData() {
@@ -46,7 +44,7 @@ class StagesAdapter :
 
             }
 
-            binding.tvDate.setOnClickListener {
+            binding.ivTicket.setOnClickListener {
                 itemClickListener.invoke(model!!, bindingAdapterPosition)
             }
         }

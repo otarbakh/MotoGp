@@ -1,7 +1,9 @@
 package com.otarbakh.motogp.di
 
 import com.otarbakh.motogp.data.repository.SummaryRepositoryImpl
+import com.otarbakh.motogp.data.repository.TicketsRepositoryImpl
 import com.otarbakh.motogp.domain.repository.SummaryRepository
+import com.otarbakh.motogp.domain.repository.TicketsRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -18,6 +20,9 @@ abstract class RepositoryModule {
         summaryRepository: SummaryRepositoryImpl
     ):SummaryRepository
 
+    @Binds
+    @Singleton
+    abstract fun provideTicketsRepo(repoImpl: TicketsRepositoryImpl): TicketsRepository
    
 }
 

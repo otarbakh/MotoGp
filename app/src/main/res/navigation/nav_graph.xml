@@ -23,7 +23,14 @@
         android:id="@+id/stagesFragment"
         android:name="com.otarbakh.motogp.ui.stages.StagesFragment"
         android:label="fragment_stages"
-        tools:layout="@layout/fragment_stages" />
+        tools:layout="@layout/fragment_stages" >
+        <action
+            android:id="@+id/action_stagesFragment_to_recentStagesFragment"
+            app:destination="@id/recentStagesFragment" />
+        <action
+            android:id="@+id/action_stagesFragment_to_upComingStagesFragment"
+            app:destination="@id/upComingStagesFragment" />
+    </fragment>
     <fragment
         android:id="@+id/favoritesFragment"
         android:name="com.otarbakh.motogp.ui.favourite.FavoritesFragment"
@@ -45,9 +52,6 @@
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
-            android:id="@+id/action_mainFragment_to_stagesFragment"
-            app:destination="@id/stagesFragment" />
-        <action
             android:id="@+id/action_mainFragment_to_teamsFragment"
             app:destination="@id/teamsFragment" />
         <action
@@ -56,6 +60,32 @@
         <action
             android:id="@+id/action_mainFragment_to_favoritesFragment2"
             app:destination="@id/favoritesFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_ticketsFragment"
+            app:destination="@id/ticketsFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_recentStagesFragment"
+            app:destination="@id/recentStagesFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_upComingStagesFragment"
+            app:destination="@id/upComingStagesFragment" />
 
+    </fragment>
+    <fragment
+        android:id="@+id/ticketsFragment"
+        android:name="com.otarbakh.motogp.TicketsFragment"
+        android:label="fragment_tickets"
+        tools:layout="@layout/fragment_tickets" />
+    <fragment
+        android:id="@+id/recentStagesFragment"
+        android:name="com.otarbakh.motogp.ui.stages.recent.RecentStagesFragment"
+        android:label="RecentStagesFragment" />
+    <fragment
+        android:id="@+id/upComingStagesFragment"
+        android:name="com.otarbakh.motogp.ui.stages.upcoming.UpComingStagesFragment"
+        android:label="UpComingStagesFragment" >
+        <action
+            android:id="@+id/action_upComingStagesFragment_to_ticketsFragment"
+            app:destination="@id/ticketsFragment" />
     </fragment>
 </navigation>

@@ -5,12 +5,13 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.otarbakh.motogp.R
 import com.otarbakh.motogp.common.BaseFragment
 import com.otarbakh.motogp.common.Resource
 import com.otarbakh.motogp.databinding.FragmentUpcomingStagesBinding
-import com.otarbakh.motogp.ui.adapters.StagesAdapter
+import com.otarbakh.motogp.ui.adapters.schedule.UpComingStagesAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -18,18 +19,22 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class UpComingStagesFragment: BaseFragment<FragmentUpcomingStagesBinding>(FragmentUpcomingStagesBinding::inflate) {
     private val stagesVM: UpComingStagesViewModel by viewModels()
-    private val stagesAdapter: StagesAdapter by lazy { StagesAdapter() }
+    private val stagesAdapter: UpComingStagesAdapter by lazy { UpComingStagesAdapter() }
 
     override fun viewCreated() {
         observe()
         observeWeather()
+
     }
 
     override fun listeners() {
-
+        goToTicket()
     }
 
-    fun goToStageDetails(){
+    fun goToTicket(){
+        stagesAdapter.setOnItemClickListener { stageX, i ->
+            findNavController().navigate(R.id.action_upComingStagesFragment_to_ticketsFragment)
+        }
 
     }
 //##################################################################################################

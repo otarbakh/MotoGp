@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="3dp"
+    >
+
+    <TextView
+        android:id="@+id/tvWinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Podium:"
+        android:textSize="23sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guidelinePosColor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/horizontalGuideline" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelinePosColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.18" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontalGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8" />
+
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="oct"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guidelinePosColor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/tv_round"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="raund ragaca"
+        android:textAllCaps="true"
+        android:textColor="@color/red"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_country"
+        app:layout_constraintDimensionRatio="7"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@+id/guidelinePosColor"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_country"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="bahreinif"
+        android:textColor="@color/black"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_grandPrixName"
+        app:layout_constraintStart_toEndOf="@+id/guidelinePosColor"
+        app:layout_constraintTop_toBottomOf="@+id/tv_round" />
+
+    <TextView
+        android:id="@+id/tv_grandPrixName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/Gray"
+        android:text="bahreingrapri saswaulebii"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@id/horizontalGuideline"
+        app:layout_constraintStart_toEndOf="@+id/guidelinePosColor"
+        app:layout_constraintTop_toBottomOf="@+id/tv_country" />
+
+
+    <TextView
+        android:id="@+id/tvFirstPlace"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="ver"
+        android:textColor="@color/DarkRed"
+        android:textSize="23sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tvSecondPlace"
+        app:layout_constraintStart_toEndOf="@id/guidelinePosColor"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalGuideline" />
+
+    <TextView
+        android:id="@+id/tvSecondPlace"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="max"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tvThirdPlace"
+        app:layout_constraintStart_toEndOf="@+id/tvFirstPlace"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalGuideline" />
+
+    <TextView
+        android:id="@+id/tvThirdPlace"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="lec"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvSecondPlace"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalGuideline" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

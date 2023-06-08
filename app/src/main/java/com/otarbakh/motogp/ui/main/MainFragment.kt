@@ -17,7 +17,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::infl
     private lateinit var navController: NavController
     override fun viewCreated() {
         navController = Navigation.findNavController(binding.root)
-//        replaceFragment(StagesFragment())
+        replaceFragment(StagesFragment())
         binding.bottomNavigationView.setOnItemSelectedListener {
 
 
