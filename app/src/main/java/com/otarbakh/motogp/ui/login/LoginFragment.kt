@@ -18,7 +18,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
 
     override fun listeners() {
         binding.buttonLogin.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
+            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToMainFragment())
         }
     }
 

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.otarbakh.motogp.ui.login.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.otarbakh.motogp.ui.main.MainFragment"
+        android:label="MainFragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_riderFragment"
+            app:destination="@id/riderFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_stagesFragment2"
+            app:destination="@id/stagesFragment2" />
+        <action
+            android:id="@+id/action_mainFragment_to_teamsFragment"
+            app:destination="@id/teamsFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_ticketsFragment"
+            app:destination="@id/ticketsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/riderFragment"
+        android:name="com.otarbakh.motogp.ui.riders.RiderFragment"
+        android:label="fragment_rider"
+        tools:layout="@layout/fragment_rider" />
+    <fragment
+        android:id="@+id/stagesFragment2"
+        android:name="com.otarbakh.motogp.StagesFragment2"
+        android:label="fragment_stages_fragment2"
+        tools:layout="@layout/fragment_stages_fragment2" >
+        <action
+            android:id="@+id/action_stagesFragment2_to_upComingStagesFragment"
+            app:destination="@id/upComingStagesFragment" />
+        <action
+            android:id="@+id/action_stagesFragment2_to_recentStagesFragment"
+            app:destination="@id/recentStagesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/teamsFragment"
+        android:name="com.otarbakh.motogp.ui.teams.TeamsFragment"
+        android:label="TeamsFragment" >
+        <action
+            android:id="@+id/action_teamsFragment_to_favoritesFragment"
+            app:destination="@id/favoritesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/upComingStagesFragment"
+        android:name="com.otarbakh.motogp.ui.stages.upcoming.UpComingStagesFragment"
+        android:label="UpComingStagesFragment" >
+        <action
+            android:id="@+id/action_upComingStagesFragment_to_ticketsFragment"
+            app:destination="@id/ticketsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/recentStagesFragment"
+        android:name="com.otarbakh.motogp.ui.stages.recent.RecentStagesFragment"
+        android:label="RecentStagesFragment" />
+    <fragment
+        android:id="@+id/ticketsFragment"
+        android:name="com.otarbakh.motogp.TicketsFragment"
+        android:label="fragment_tickets"
+        tools:layout="@layout/fragment_tickets" />
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.otarbakh.motogp.ui.favourite.FavoritesFragment"
+        android:label="FavoritesFragment" />
+</navigation>

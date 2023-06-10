@@ -33,7 +33,7 @@ class UpComingStagesFragment: BaseFragment<FragmentUpcomingStagesBinding>(Fragme
 
     fun goToTicket(){
         stagesAdapter.setOnItemClickListener { stageX, i ->
-            findNavController().navigate(R.id.action_upComingStagesFragment_to_ticketsFragment)
+            findNavController().navigate(UpComingStagesFragmentDirections.actionUpComingStagesFragmentToTicketsFragment())
         }
 
     }

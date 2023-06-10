@@ -2,21 +2,7 @@ package com.otarbakh.motogp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.ContactsContract
-import android.view.MenuItem
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.replace
-import androidx.navigation.NavController
-import androidx.navigation.Navigation.findNavController
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.onNavDestinationSelected
-import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.otarbakh.motogp.databinding.ActivityMainBinding
-import com.otarbakh.motogp.ui.riders.RiderFragment
-import com.otarbakh.motogp.ui.stages.StagesFragment
-import com.otarbakh.motogp.ui.teams.TeamsFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

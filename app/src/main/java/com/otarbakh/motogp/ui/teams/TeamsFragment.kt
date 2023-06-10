@@ -31,7 +31,7 @@ class TeamsFragment : BaseFragment<FragmentTeamsBinding>(FragmentTeamsBinding::i
     override fun listeners() {
         addTeam()
         binding.btnFavs.setOnClickListener{
-            findNavController().navigate(R.id.action_mainFragment_to_favoritesFragment2)
+//            findNavController().navigate(TeamsFragmentDirections.actionTeamsFragmentToFavoritesFragment())
 //            replaceFragment(FavoritesFragment())
         }
     }
