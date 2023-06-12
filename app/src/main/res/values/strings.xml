@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MotoGp</string>
+
+    <string name="yes_sure">YES</string>
+    <string name="you_bought_ticket">Thanks! you bought ticket! check your cart!</string>
+    <string name="canceled">you canceled purchase process</string>
 </resources>

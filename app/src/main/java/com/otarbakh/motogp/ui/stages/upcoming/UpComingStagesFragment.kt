@@ -12,6 +12,7 @@ import com.otarbakh.motogp.common.BaseFragment
 import com.otarbakh.motogp.common.Resource
 import com.otarbakh.motogp.databinding.FragmentUpcomingStagesBinding
 import com.otarbakh.motogp.ui.adapters.schedule.UpComingStagesAdapter
+import com.otarbakh.motogp.ui.model.TicketInfo
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -28,15 +29,10 @@ class UpComingStagesFragment: BaseFragment<FragmentUpcomingStagesBinding>(Fragme
     }
 
     override fun listeners() {
-        goToTicket()
+        buyTicket()
+        checkBoughtTickets()
     }
 
-    fun goToTicket(){
-        stagesAdapter.setOnItemClickListener { stageX, i ->
-            findNavController().navigate(UpComingStagesFragmentDirections.actionUpComingStagesFragmentToTicketsFragment())
-        }
-
-    }
 //##################################################################################################
     private fun setupRecycler() {
         binding.rvStages.apply {
@@ -47,6 +43,25 @@ class UpComingStagesFragment: BaseFragment<FragmentUpcomingStagesBinding>(Fragme
                     LinearLayoutManager.VERTICAL,
                     false
                 )
+        }
+    }
+
+    private fun checkBoughtTickets(){
+        binding.ivCart.setOnClickListener {
+            findNavController().navigate(UpComingStagesFragmentDirections.actionUpComingStagesFragmentToBoughtTicketFragment())
+        }
+    }
+
+    private fun buyTicket(){
+        stagesAdapter.apply {
+            setOnItemClickListener{ venue,_ ->
+                findNavController().navigate(UpComingStagesFragmentDirections.actionUpComingStagesFragmentToTicketsFragment(
+                    TicketInfo(
+                        trackName = venue.description!!,
+                        date = venue.scheduled!!
+                    )
+                ))
+            }
         }
     }
     private fun observe() {

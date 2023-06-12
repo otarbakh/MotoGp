@@ -59,6 +59,16 @@
         app:layout_constraintTop_toBottomOf="@id/tvRaceName" />
 
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/ivCart"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="25dp"
+        android:src="@drawable/baseline_shopping_cart_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
     <TextView
         android:id="@+id/lastRaceLocation"
         android:layout_width="0dp"
@@ -108,9 +118,9 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvStages"
-        android:layout_marginTop="15dp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/lastRaceContainer" />
 

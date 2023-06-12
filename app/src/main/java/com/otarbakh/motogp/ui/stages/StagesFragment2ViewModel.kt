@@ -1,4 +1,4 @@
-package com.otarbakh.motogp
+package com.otarbakh.motogp.ui.stages
 
 import androidx.lifecycle.ViewModel
 

@@ -30,6 +30,9 @@
         <action
             android:id="@+id/action_upComingStagesFragment_to_ticketsFragment"
             app:destination="@id/ticketsFragment" />
+        <action
+            android:id="@+id/action_upComingStagesFragment_to_boughtTicketFragment"
+            app:destination="@id/boughtTicketFragment" />
     </fragment>
     <fragment
         android:id="@+id/riderFragment"
@@ -38,7 +41,7 @@
         tools:layout="@layout/fragment_rider" />
     <fragment
         android:id="@+id/stagesFragment2"
-        android:name="com.otarbakh.motogp.StagesFragment2"
+        android:name="com.otarbakh.motogp.ui.stages.StagesFragment2"
         android:label="fragment_stages_fragment2"
         tools:layout="@layout/fragment_stages_fragment2" >
         <action
@@ -63,6 +66,9 @@
         <action
             android:id="@+id/action_upComingStagesFragment_to_ticketsFragment"
             app:destination="@id/ticketsFragment" />
+        <action
+            android:id="@+id/action_upComingStagesFragment_to_boughtTicketFragment"
+            app:destination="@id/boughtTicketFragment" />
     </fragment>
     <fragment
         android:id="@+id/recentStagesFragment"
@@ -70,11 +76,20 @@
         android:label="RecentStagesFragment" />
     <fragment
         android:id="@+id/ticketsFragment"
-        android:name="com.otarbakh.motogp.TicketsFragment"
+        android:name="com.otarbakh.motogp.ui.tickets.TicketsFragment"
         android:label="fragment_tickets"
-        tools:layout="@layout/fragment_tickets" />
+        tools:layout="@layout/fragment_tickets" >
+        <argument
+            android:name="StageInfo"
+            app:argType="com.otarbakh.motogp.ui.model.TicketInfo" />
+    </fragment>
     <fragment
         android:id="@+id/favoritesFragment"
         android:name="com.otarbakh.motogp.ui.favourite.FavoritesFragment"
         android:label="FavoritesFragment" />
+    <fragment
+        android:id="@+id/boughtTicketFragment"
+        android:name="com.otarbakh.motogp.ui.bought_ticket.BoughtTicketsFragment"
+        android:label="fragment_bought_ticket"
+        tools:layout="@layout/fragment_bought_ticket" />
 </navigation>

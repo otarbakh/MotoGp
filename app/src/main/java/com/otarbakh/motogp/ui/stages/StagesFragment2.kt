@@ -10,7 +10,7 @@ import com.otarbakh.motogp.ui.adapters.ViewPagerAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class StagesFragment : BaseFragment<FragmentStagesBinding>(FragmentStagesBinding::inflate) {
+class StagesFragment2 : BaseFragment<FragmentStagesBinding>(FragmentStagesBinding::inflate) {
 
     private lateinit var viewPager: ViewPager2
     private lateinit var tabLayout: TabLayout
