@@ -4,4 +4,6 @@
     <string name="yes_sure">YES</string>
     <string name="you_bought_ticket">Thanks! you bought ticket! check your cart!</string>
     <string name="canceled">you canceled purchase process</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
