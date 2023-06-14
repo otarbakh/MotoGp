@@ -34,13 +34,15 @@ class RidersAdapter :
         fun bindData() {
             model = getItem(adapterPosition)
             binding.apply {
-                tvRiderName.text = model?.name
-                tvRiderNationality.text = model?.nationality
+                tvDriverName.text = model?.name
+                tvTeam.text = model?.team!!.name
+                tvPoints.text = model?.result!!.points.toString()
+                tvPosition.text = model?.result!!.position.toString()
 
 
             }
 
-            binding.tvRiderName.setOnClickListener {
+            binding.tvDriverName.setOnClickListener {
                 itemClickListener.invoke(model!!, adapterPosition)
             }
         }
