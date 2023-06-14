@@ -36,6 +36,9 @@
         <action
             android:id="@+id/action_upComingStagesFragment_to_boughtTicketFragment"
             app:destination="@id/boughtTicketFragment" />
+        <action
+            android:id="@+id/action_recentStagesFragment_to_singleStageSummary"
+            app:destination="@id/singleStageSummary" />
     </fragment>
     <fragment
         android:id="@+id/riderFragment"
@@ -76,7 +79,11 @@
     <fragment
         android:id="@+id/recentStagesFragment"
         android:name="com.otarbakh.motogp.ui.stages.recent.RecentStagesFragment"
-        android:label="RecentStagesFragment" />
+        android:label="RecentStagesFragment" >
+        <action
+            android:id="@+id/action_recentStagesFragment_to_singleStageSummary"
+            app:destination="@id/singleStageSummary" />
+    </fragment>
     <fragment
         android:id="@+id/ticketsFragment"
         android:name="com.otarbakh.motogp.ui.tickets.TicketsFragment"
@@ -107,4 +114,18 @@
             android:id="@+id/action_registerFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/singleStageSummary"
+        android:name="com.otarbakh.motogp.ui.single_stage.SingleStageSummaryFragment"
+        android:label="fragment_single_stage_summary"
+        tools:layout="@layout/fragment_single_stage_summary" >
+        <argument
+            android:name="stageId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/newsFragment"
+        android:name="com.otarbakh.motogp.ui.news.NewsFragment"
+        android:label="fragment_news"
+        tools:layout="@layout/fragment_news" />
 </navigation>

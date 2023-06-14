@@ -47,7 +47,7 @@ class RecentStagesAdapter :
 
             }
 
-            binding.tvDate.setOnClickListener {
+            binding.tvCountry.setOnClickListener {
                 itemClickListener.invoke(model!!, bindingAdapterPosition)
             }
         }

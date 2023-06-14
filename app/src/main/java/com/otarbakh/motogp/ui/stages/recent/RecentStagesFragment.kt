@@ -1,9 +1,11 @@
 package com.otarbakh.motogp.ui.stages.recent
 
+import android.util.Log
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.otarbakh.motogp.common.BaseFragment
 import com.otarbakh.motogp.common.Resource
@@ -17,6 +19,8 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class RecentStagesFragment: BaseFragment<FragmentRecentStagesBinding>(FragmentRecentStagesBinding::inflate) {
 
+    private var stageId = ""
+
     private val recentVM: RecentStagesViewModel by viewModels()
     private val recentAdapter: RecentStagesAdapter by lazy { RecentStagesAdapter() }
 
@@ -25,6 +29,12 @@ class RecentStagesFragment: BaseFragment<FragmentRecentStagesBinding>(FragmentRe
     }
 
     override fun listeners() {
+
+    }
+
+    private fun goToStageDetails(){
+
+            findNavController().navigate(RecentStagesFragmentDirections.actionRecentStagesFragmentToSingleStageSummary(stageId))
 
     }
 
@@ -56,6 +66,14 @@ class RecentStagesFragment: BaseFragment<FragmentRecentStagesBinding>(FragmentRe
 
                         is Resource.Success -> {
                             recentAdapter.submitList(it.data)
+                            recentAdapter.setOnItemClickListener { stageX, i ->
+                                stageId = stageX.id.toString()
+                                Log.d("MIshiko" ,stageId )
+                                goToStageDetails()
+
+                            }
+
+
                         }
                         else -> {}
                     }

@@ -27,7 +27,7 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class TicketsFragment :
     BaseFragment<FragmentTicketsBinding>(FragmentTicketsBinding::inflate) {
-    val args: TicketsFragmentArgs by navArgs()
+    private val args: TicketsFragmentArgs by navArgs()
 
     private val ticketsAdapter: TicketsAdapter by lazy { TicketsAdapter() }
     private val ticketsViewModel: TicketsViewModel by viewModels()

@@ -13,8 +13,8 @@
         android:id="@+id/teams"
         android:icon="@drawable/baseline_settings_24"/>
 
-    <item android:title="stream"
-        android:id="@+id/stream"
+    <item android:title="News"
+        android:id="@+id/news"
         android:icon="@drawable/baseline_ondemand_video_24"/>
 
 </menu>

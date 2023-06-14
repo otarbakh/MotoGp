@@ -5,6 +5,7 @@ import com.otarbakh.motogp.common.Constants
 import com.otarbakh.motogp.common.Resource
 import com.otarbakh.motogp.data.database.TeamsDao
 import com.otarbakh.motogp.data.model.TeamsEntity
+import com.otarbakh.motogp.data.model.single_stage_summary.Competitor
 import com.otarbakh.motogp.data.service.SummaryService
 import com.otarbakh.motogp.data.model.summary.Stage
 import com.otarbakh.motogp.data.model.toDomain
@@ -36,6 +37,27 @@ class SummaryRepositoryImpl @Inject constructor(
                 emit(Resource.Success(response.body()!!.stage!!))
 
                 Log.d("Jameson", "${response}")
+            } else {
+                Log.d("Jameson", "erorrrrrrrr")
+            }
+        } catch (e: HttpException) {
+            emit(Resource.Error(e.localizedMessage ?: "Ops Erorr"))
+            Log.d("Jameson", "erorr")
+        } catch (e: HttpException) {
+            emit(Resource.Error(e.message()))
+
+            Log.d("Jameson", "eoriraa vaax")
+        }
+    }
+
+
+    override suspend fun getSingleStageSummary(stageId:String): Flow<Resource<List<Competitor>?>> = flow {
+        try {
+            emit(Resource.Loading(true))
+            val response = summaryService.fetchSingleStageSummary(stageId,Constants.APY_KEY)
+            if (response.isSuccessful) {
+                emit(Resource.Success(response.body()!!.stage!!.competitors))
+
             } else {
                 Log.d("Jameson", "erorrrrrrrr")
             }

@@ -1,6 +1,7 @@
 package com.otarbakh.motogp.di
 
 import com.otarbakh.motogp.common.Constants
+import com.otarbakh.motogp.data.service.NewsService
 import com.otarbakh.motogp.data.service.SummaryService
 import com.otarbakh.motogp.data.service.WeatherService
 import dagger.Module
@@ -33,4 +34,16 @@ object AppModule {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(WeatherService::class.java)
+
+
+    @Singleton
+    @Provides
+    fun provideNews(): NewsService =
+        Retrofit.Builder()
+            .baseUrl(Constants.BASE_URL_NEWS)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(NewsService::class.java)
+
+
 }

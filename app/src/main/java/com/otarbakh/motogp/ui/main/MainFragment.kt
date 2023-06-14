@@ -5,6 +5,7 @@ import com.otarbakh.motogp.R
 import com.otarbakh.motogp.ui.stages.StagesFragment2
 import com.otarbakh.motogp.common.BaseFragment
 import com.otarbakh.motogp.databinding.FragmentMainBinding
+import com.otarbakh.motogp.ui.news.NewsFragment
 import com.otarbakh.motogp.ui.riders.RiderFragment
 import com.otarbakh.motogp.ui.teams.TeamsFragment
 
@@ -21,7 +22,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::infl
                 R.id.riders -> replaceFragment(RiderFragment())
                 R.id.stages -> replaceFragment(StagesFragment2())
                 R.id.teams -> replaceFragment(TeamsFragment())
-                R.id.stream ->replaceFragment(fragment = Fragment())
+                R.id.news ->replaceFragment(NewsFragment())
 
                 else -> {
 
@@ -34,14 +35,12 @@ class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::infl
     }
 
     private fun replaceFragment(fragment: Fragment) {
-
         val fragmentManager = parentFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.frameLayout, fragment)
         fragmentTransaction.commit()
 
     }
-
 
     override fun listeners() {
 
