@@ -26,8 +26,8 @@
 
     <ImageView
         android:id="@+id/ivTeamIndicator"
-        android:layout_width="6dp"
-        android:layout_height="37dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:src="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/guidelinePosColor"
@@ -58,7 +58,7 @@
         android:fontFamily="@font/quan_rounded_regular"
         android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/tvTeam"
-        app:layout_constraintStart_toEndOf="@+id/guidelinePosColor"
+        app:layout_constraintStart_toEndOf="@id/ivTeamIndicator"
         app:layout_constraintTop_toTopOf="@+id/ivTeamIndicator" />
 
 
