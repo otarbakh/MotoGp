@@ -4,6 +4,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -21,8 +22,11 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
     private lateinit var auth: FirebaseAuth
 
     override fun viewCreated() {
+
+
         auth = Firebase.auth
 
+        checkLoggedInState()
 
         binding.etEmailImpl.doOnTextChanged { text, start, before, count ->
             binding.btnSignIn.visibility = View.VISIBLE
@@ -32,6 +36,10 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
     override fun listeners() {
         binding.btnSignIn.setOnClickListener {
             loginWithUser()
+        }
+
+        binding.btnCreateAccount.setOnClickListener {
+            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToRegisterFragment())
         }
 
     }
@@ -66,8 +74,12 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
             Log.d("mcici","not logged in")
         } else {
             Log.d("mcici","logged in")
+            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToRiderFragment())
         }
     }
+
+
+
 
 
 

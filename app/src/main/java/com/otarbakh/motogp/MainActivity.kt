@@ -24,8 +24,16 @@ class MainActivity : AppCompatActivity() {
         setupWithNavController(binding.bottomNavigationView,navController)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            if(destination.id == R.id.ticketsFragment ||destination.id == R.id.boughtTicketFragment || destination.id == R.id.favoritesFragment || destination.id == R.id.singleStageSummary ) {
+            if(destination.id == R.id.ticketsFragment ||
+                destination.id == R.id.boughtTicketFragment ||
+                destination.id == R.id.favoritesFragment ||
+                destination.id == R.id.singleStageSummary ||
+                destination.id == R.id.loginFragment ||
+                destination.id == R.id.registerFragment
+            ) {
                 binding.bottomNavigationView.visibility = View.GONE
+
+
             } else {
                 binding.bottomNavigationView.visibility = View.VISIBLE
             }

@@ -3,18 +3,22 @@
 
     <item android:title="riders"
         android:id="@+id/riderFragment"
-        android:icon="@drawable/baseline_home_24"/>
+        android:icon="@drawable/baseline_sports_motorsports_24"/>
 
     <item android:title="stages"
         android:id="@+id/stagesFragment2"
-        android:icon="@drawable/baseline_person_24"/>
+        android:icon="@drawable/baseline_flag_24"/>
 
     <item android:title="teams"
         android:id="@+id/teamsFragment"
-        android:icon="@drawable/baseline_settings_24"/>
+        android:icon="@drawable/baseline_speed_24"/>
 
     <item android:title="News"
         android:id="@+id/newsFragment"
         android:icon="@drawable/baseline_ondemand_video_24"/>
+
+    <item android:title="User"
+        android:id="@+id/userFragment"
+        android:icon="@drawable/baseline_person_24"/>
 
 </menu>
