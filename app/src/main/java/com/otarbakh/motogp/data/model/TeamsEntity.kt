@@ -10,7 +10,7 @@ import com.otarbakh.motogp.domain.model.TeamDomain
 @Entity(tableName = "MotoGpTeams")
 data class TeamsEntity(
 
-//    val competitors: List<CompetitorX>?,
+
     val country_code: String?,
     @PrimaryKey(autoGenerate = false)
     val id: String,

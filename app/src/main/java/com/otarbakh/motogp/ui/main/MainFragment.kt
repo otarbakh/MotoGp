@@ -10,35 +10,7 @@ import com.otarbakh.motogp.ui.riders.RiderFragment
 import com.otarbakh.motogp.ui.teams.TeamsFragment
 
 class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::inflate) {
-    private lateinit var navController: NavController
     override fun viewCreated() {
-        navController = Navigation.findNavController(binding.root)
-        replaceFragment(StagesFragment2())
-        binding.bottomNavigationView.setOnItemSelectedListener {
-
-
-            when (it.itemId) {
-
-                R.id.riders -> replaceFragment(RiderFragment())
-                R.id.stages -> replaceFragment(StagesFragment2())
-                R.id.teams -> replaceFragment(TeamsFragment())
-                R.id.news ->replaceFragment(NewsFragment())
-
-                else -> {
-
-                }
-            }
-            true
-        }
-
-
-    }
-
-    private fun replaceFragment(fragment: Fragment) {
-        val fragmentManager = parentFragmentManager
-        val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.frameLayout, fragment)
-        fragmentTransaction.commit()
 
     }
 

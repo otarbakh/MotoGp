@@ -17,7 +17,7 @@ interface SummaryRepository {
 
     suspend fun getTeams() : Flow<List<TeamDomain>>
 
-    suspend fun deleteTeam(team: TeamsEntity)
+    suspend fun deleteTeam(team: TeamDomain)
 
 
     suspend fun insert(team: TeamDomain)

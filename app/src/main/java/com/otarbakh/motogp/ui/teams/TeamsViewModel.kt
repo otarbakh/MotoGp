@@ -12,10 +12,12 @@ import com.otarbakh.motogp.domain.model.TeamDomain
 import com.otarbakh.motogp.domain.repository.SummaryRepository
 import com.otarbakh.motogp.domain.use_case.TeamsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -37,7 +39,10 @@ class TeamsViewModel @Inject constructor(
             }
         }.launchIn(viewModelScope)
     }
-    suspend fun addTeam(team: TeamDomain){
-        summaryRepository.insert(team)
+    fun addTeam(team: TeamDomain){
+        viewModelScope.launch(Dispatchers.IO) {
+            summaryRepository.insert(team)
+        }
     }
+
 }

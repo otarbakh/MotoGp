@@ -6,6 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.otarbakh.motogp.data.model.TeamsEntity
+import com.otarbakh.motogp.domain.model.TeamDomain
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -13,21 +14,21 @@ interface TeamsDao {
     @Query("SELECT * FROM MotoGpTeams")
     fun getAll(): Flow<List<TeamsEntity>>
 
-    @Query("SELECT * FROM MotoGpTeams WHERE id IN (:userIds)")
-    fun loadAllByIds(userIds: IntArray): Flow<List<TeamsEntity>>
+    @Query("SELECT * FROM MotoGpTeams WHERE id IN (:teamId)")
+    fun loadAllByIds(teamId: IntArray): Flow<List<TeamsEntity>>
 
     @Query("SELECT * FROM MotoGpTeams WHERE name LIKE :first AND " +
             "nationality LIKE :last LIMIT 1")
     fun findByName(first: String, last: String): Flow<TeamsEntity>
 
     @Insert
-    fun insertAll(vararg users: TeamsEntity)
+    fun insertAll(vararg teams: TeamsEntity)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(users: TeamsEntity)
+    fun insert(teams: TeamsEntity)
 
     @Delete
-    fun delete(user: TeamsEntity)
+    fun delete(team: TeamsEntity)
 
     @Query("DELETE FROM MotoGpTeams")
     fun deleteAll()

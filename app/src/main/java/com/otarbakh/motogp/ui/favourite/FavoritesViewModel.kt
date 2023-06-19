@@ -20,8 +20,16 @@ class FavoritesViewModel @Inject constructor(
     private val summaryRepository: SummaryRepository,
 ) : ViewModel() {
 
-//    private var _state  = MutableStateFlow<List<TeamsEntity>>(emptyList())
-//    val state = _state.asStateFlow()
+    fun deleteTeam(team: TeamDomain){
+        viewModelScope.launch(Dispatchers.IO) {
+            summaryRepository.deleteTeam(team)
+        }
+    }
+    fun addTeam(team: TeamDomain){
+        viewModelScope.launch(Dispatchers.IO) {
+            summaryRepository.insert(team)
+        }
+    }
 
 
     suspend fun getTeam(): Flow<List<TeamDomain>> {

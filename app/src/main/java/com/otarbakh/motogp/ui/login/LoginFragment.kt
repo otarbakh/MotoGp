@@ -1,6 +1,5 @@
 package com.otarbakh.motogp.ui.login
 
-
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -25,20 +24,20 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
         auth = Firebase.auth
 
 
-        binding.etEmail.doOnTextChanged { text, start, before, count ->
-            binding.btnLogin.visibility = View.VISIBLE
+        binding.etEmailImpl.doOnTextChanged { text, start, before, count ->
+            binding.btnSignIn.visibility = View.VISIBLE
         }
     }
 
     override fun listeners() {
-        binding.btnLogin.setOnClickListener {
+        binding.btnSignIn.setOnClickListener {
             loginWithUser()
         }
 
     }
     private fun loginWithUser(){
-        val email = binding.etEmail.text.toString()
-        val password = binding.etPassword.text.toString()
+        val email = binding.etEmailImpl.text.toString()
+        val password = binding.etPasswordImpl.text.toString()
 
         if(email.isNotEmpty() && password.isNotEmpty() && isValidEmail()){
             CoroutineScope(Dispatchers.IO).launch {
@@ -46,7 +45,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
                     auth.signInWithEmailAndPassword(email,password).await()
                     withContext(Dispatchers.Main){
                         checkLoggedInState()
-                        findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToMainFragment())
+                        findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToRiderFragment())
                     }
                 }catch (e:Exception){
                     withContext(Dispatchers.Main){
@@ -58,7 +57,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
     }
 
     private fun isValidEmail(): Boolean =
-        android.util.Patterns.EMAIL_ADDRESS.matcher(binding?.etEmail?.text.toString()).matches()
+        android.util.Patterns.EMAIL_ADDRESS.matcher(binding?.etEmailImpl?.text.toString()).matches()
 
 
     private fun checkLoggedInState() {
@@ -69,5 +68,8 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
             Log.d("mcici","logged in")
         }
     }
+
+
+
 
 }

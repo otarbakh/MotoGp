@@ -39,7 +39,7 @@
         android:text="oct"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/tv_time"
-        app:layout_constraintEnd_toStartOf="@+id/tv_round"
+        app:layout_constraintEnd_toStartOf="@id/guidelinePosColor"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -68,17 +68,7 @@
         app:layout_constraintStart_toEndOf="@+id/guidelinePosColor"
         app:layout_constraintTop_toBottomOf="@+id/tv_country" />
 
-    <TextView
-        android:id="@+id/tv_round"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="raund ragaca"
-        android:textAllCaps="true"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/tv_country"
-        app:layout_constraintEnd_toStartOf="@+id/guidelineEnd"
-        app:layout_constraintStart_toEndOf="@+id/guidelinePosColor"
-        app:layout_constraintTop_toTopOf="parent" />
+
 
     <TextView
         android:id="@+id/tv_country"
@@ -88,7 +78,7 @@
         android:textSize="40sp"
         app:layout_constraintBottom_toTopOf="@+id/tv_grandPrixName"
         app:layout_constraintStart_toEndOf="@+id/guidelinePosColor"
-        app:layout_constraintTop_toBottomOf="@+id/tv_round" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

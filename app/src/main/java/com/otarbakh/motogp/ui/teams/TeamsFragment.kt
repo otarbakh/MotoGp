@@ -7,7 +7,14 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.ItemTouchHelper.DOWN
+import androidx.recyclerview.widget.ItemTouchHelper.LEFT
+import androidx.recyclerview.widget.ItemTouchHelper.RIGHT
+import androidx.recyclerview.widget.ItemTouchHelper.UP
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import com.otarbakh.motogp.R
 import com.otarbakh.motogp.common.BaseFragment
 import com.otarbakh.motogp.common.Resource
@@ -29,10 +36,11 @@ class TeamsFragment : BaseFragment<FragmentTeamsBinding>(FragmentTeamsBinding::i
     }
 
     override fun listeners() {
+
         addTeam()
         binding.btnFavs.setOnClickListener{
-//            findNavController().navigate(TeamsFragmentDirections.actionTeamsFragmentToFavoritesFragment())
-//            replaceFragment(FavoritesFragment())
+            findNavController().navigate(TeamsFragmentDirections.actionTeamsFragmentToFavoritesFragment())
+
         }
     }
 
@@ -83,5 +91,6 @@ class TeamsFragment : BaseFragment<FragmentTeamsBinding>(FragmentTeamsBinding::i
             }
         }
     }
+
 
 }

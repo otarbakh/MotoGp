@@ -6,7 +6,7 @@ import com.otarbakh.motogp.data.model.TeamsEntity
 import com.otarbakh.motogp.data.model.TicketsEntity
 
 
-@Database(entities = [TeamsEntity::class, TicketsEntity::class], version = 3)
+@Database(entities = [TeamsEntity::class, TicketsEntity::class], version = 4)
 abstract class DataBase: RoomDatabase(){
     abstract val teamsDao: TeamsDao
     abstract val ticketsDao: TicketsDao

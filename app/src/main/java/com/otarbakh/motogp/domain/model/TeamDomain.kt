@@ -5,7 +5,7 @@ import com.otarbakh.motogp.data.model.summary.CompetitorX
 import com.otarbakh.motogp.data.model.summary.ResultXX
 
 data class TeamDomain(
-//    val competitors: List<CompetitorX>?,
+
     val country_code: String?,
     val id: String,
     val name: String?,

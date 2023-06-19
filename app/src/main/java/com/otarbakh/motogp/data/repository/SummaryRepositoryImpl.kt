@@ -4,7 +4,6 @@ import android.util.Log
 import com.otarbakh.motogp.common.Constants
 import com.otarbakh.motogp.common.Resource
 import com.otarbakh.motogp.data.database.TeamsDao
-import com.otarbakh.motogp.data.model.TeamsEntity
 import com.otarbakh.motogp.data.model.single_stage_summary.Competitor
 import com.otarbakh.motogp.data.service.SummaryService
 import com.otarbakh.motogp.data.model.summary.Stage
@@ -79,8 +78,8 @@ class SummaryRepositoryImpl @Inject constructor(
         favouritesDao.insert(team.toTeamEntity())
     }
 
-    override suspend fun deleteTeam(team: TeamsEntity) {
-        favouritesDao.delete(team)
+    override suspend fun deleteTeam(team: TeamDomain) {
+        favouritesDao.delete(team.toTeamEntity())
     }
 
     override suspend fun deleteAll() {

@@ -92,6 +92,7 @@ class UpComingStagesFragment: BaseFragment<FragmentUpcomingStagesBinding>(Fragme
                                 tvLocation.text = it.data?.get(0)?.venue?.country
                                 tvRaceName.text = it.data?.get(0)?.venue?.city
                             }
+                            binding.dateContainer.text = it.data?.get(0)?.scheduled?.dropLast(15)
 
                         }
 
