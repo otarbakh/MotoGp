@@ -34,17 +34,31 @@ class RidersAdapter :
         RecyclerView.ViewHolder(binding.root) {
         private var model: Competitor? = null
         fun bindData() {
-            model = getItem(adapterPosition)
+            model = getItem(absoluteAdapterPosition)
             binding.apply {
                 tvDriverName.text = model?.name
                 tvTeam.text = model?.team!!.name
                 tvPoints.text = model?.result!!.points.toString()
-                tvPosition.text = model?.result!!.position.toString()
+
+                if (model?.result!!.position == null) {
+                    tvPosition.text = "n/a"
+                } else {
+                    tvPosition.text = model?.result!!.position.toString()
+                }
+
+
+                if (model?.result!!.points == null) {
+                    tvPoints.text = "0"
+                } else {
+                    tvPoints.text = model?.result!!.points.toString()
+                }
+
+
 
 
                 when (model!!.name) {
 
-                    Riders.BINDER.lastName ->binding.ivTeamIndicator.setImageResource(Riders.BINDER.imageResourceId)
+                    Riders.BINDER.lastName -> binding.ivTeamIndicator.setImageResource(Riders.BINDER.imageResourceId)
                     Riders.ESPARGARO_A.lastName -> binding.ivTeamIndicator.setImageResource(Riders.ESPARGARO_A.imageResourceId)
                     Riders.MARQUEZ_A.lastName -> binding.ivTeamIndicator.setImageResource(Riders.MARQUEZ_A.imageResourceId)
                     Riders.RINS.lastName -> binding.ivTeamIndicator.setImageResource(Riders.RINS.imageResourceId)
@@ -70,7 +84,7 @@ class RidersAdapter :
             }
 
             binding.tvDriverName.setOnClickListener {
-                itemClickListener.invoke(model!!, adapterPosition)
+                itemClickListener.invoke(model!!, absoluteAdapterPosition)
             }
         }
     }
