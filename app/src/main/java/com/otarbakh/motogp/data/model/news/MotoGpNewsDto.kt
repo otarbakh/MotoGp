@@ -11,4 +11,8 @@ data class MotoGpNewsDto(
     val status: String = "",
     @SerializedName("totalResults")
     val totalResults: Int = 0
+
+
 )
+
+

@@ -32,7 +32,6 @@ class TicketsFragment :
     private val ticketsAdapter: TicketsAdapter by lazy { TicketsAdapter() }
     private val ticketsViewModel: TicketsViewModel by viewModels()
 
-
     private val ticketsList = mutableListOf<Tickets>()
 
 
